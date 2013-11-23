@@ -1,0 +1,36 @@
+# temporary files
+*~
+*.swp
+*.*-swp
+*.tmp.*
+
+# ignore files
+*.ign.*
+
+# latex trash and temp files
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+
+# office files
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+
+# mac trash
+.DS_Store
+
+# linux trash
+*.lock
+*.bak
+*.directory
+*.thumb
+
+# ide trash
+/.idea/
