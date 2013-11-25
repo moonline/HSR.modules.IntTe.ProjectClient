@@ -23,18 +23,15 @@
     <script src="init.js"></script>  -->
     
 </head>
-    <body>
-        
-        <!--<script src="ui.js"></script> --> 
-        
+    <body>        
         <!-- List -->
-	<div data-role="page" id="list">
+	<div data-role="page" id="detail">
 		<div data-theme="a" data-role="header">
 			<a id="nav-home" data-role="button" href="#list" data-icon="home" data-iconpos="left"
 			class="ui-btn-left">
 				Home
 			</a>
-			<a data-role="button" href="#login" data-icon="arrow-r" data-iconpos="left"
+			<a data-role="button" href="#login" data-icon="arrow-r" data-iconpos="left" data-rel="dialog"
 			class="ui-btn-right">
 				Login
 			</a>
@@ -43,43 +40,7 @@
 			</h3>
 		</div>
 		<div data-role="content">
-			<ul data-role="listview" data-divider-theme="b" data-inset="true">
-				<li data-theme="c">
-					<a href="#page1" data-transition="slide">
-						Post1
-					</a>
-				</li>
-				<li data-theme="c">
-					<a href="#page1" data-transition="slide">
-						Post2
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	
-	<!-- Login -->
-	<div data-role="page" id="login">
-		<div data-theme="a" data-role="header">
-			<a id="nav-home" data-role="button" href="#list" data-icon="home" data-iconpos="left"
-			class="ui-btn-left">
-				Home
-			</a>
-			<h3 class="title">
-				Better Reddit
-			</h3>
-		</div>
-		<div data-role="content">
-			<div data-role="fieldcontain">
-				<input name="username" id="input-username" placeholder="username" value=""
-				type="text">
-			</div>
-			<div data-role="fieldcontain">
-				<input name="password" id="input-password" placeholder="password" value=""
-				type="password">
-			</div>
-			<input id="login-submit" data-theme="a" data-icon="check" data-iconpos="left"
-			value="Login" type="submit">
+			Detail page
 		</div>
 	</div>
     </body>
