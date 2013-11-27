@@ -1,0 +1,47 @@
+@font-face {
+	font-family: Batch;
+	src: url("/resources/font/batch/batch-icons-webfont.woff");
+	src: url("/resources/font/batch/batch-icons-webfont.eot?#iefix") format('embedded-opentype'),
+		url("/resources/font/batch/batch-icons-webfont.woff") format('woff'),
+		url("/resources/font/batch/batch-icons-webfont.ttf") format('truetype'),
+		url("/resources/font/batch/batch-icons-webfont.svg") format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon-batch { font-family: "Batch"; }
+
+
+@font-face {
+    font-family: 'Ligature';
+    src: url("/resources/font/ligature/LigatureSymbols-2.11.eot']}");
+    src: url("/resources/font/ligature/LigatureSymbols-2.11.eot?#iefix']}") format('embedded-opentype'),
+         url("/resources/font/ligature/LigatureSymbols-2.11.woff") format('woff'),
+         url("/resources/font/ligature/LigatureSymbols-2.11.ttf") format('truetype'),
+         url("/resources/font/ligature/LigatureSymbols-2.11.svg#LigatureSymbols") format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-liga { font-family: "Ligature"; }
+
+@font-face {
+	font-family: Gothic;
+	src: url("/resources/font/gothic/DidactGothic.woff");
+	src: url("/resources/font/gothic/DidactGothic.eot?#iefix") format('embedded-opentype'),
+		url("/resources/font/gothic/DidactGothic.woff") format('woff'),
+		url("/resources/font/gothic/DidactGothic.ttf") format('truetype'),
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Timeburner;
+	src: url("/resources/font/timeburner/Timeburner.woff");
+	src: url("/resources/font/timeburner/Timeburner.eot?#iefix") format('embedded-opentype'),
+		url("/resources/font/timeburner/Timeburner.woff") format('woff'),
+		url("/resources/font/timeburner/Timeburner.ttf") format('truetype'),
+	font-weight: normal;
+	font-style: normal;
+}
+
