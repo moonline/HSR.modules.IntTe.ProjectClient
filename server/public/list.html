@@ -40,7 +40,7 @@
 				<a data-role="button" href="#login" data-icon="arrow-r" data-iconpos="left" data-rel="dialog" class="loginButton">
 					Login
 				</a>
-				<a id="nav-home" data-role="button" href="#register" data-icon="home" data-iconpos="left" data-rel="dialog" class="registerButton">
+				<a id="nav-home" data-role="button" href="#register" data-icon="add" data-iconpos="left" data-rel="dialog" class="registerButton">
 					Register
 				</a>
 			</div>
@@ -69,6 +69,11 @@
 				{{~}}
 			</ul>
 		</div>
+		<div data-theme="a" data-role="footer" class="listFooter">
+			<a data-role="button" href="#newPost" data-icon="add" data-iconpos="left" data-rel="dialog" class="newPostButton">
+				new Post
+			</a>
+		</div>
 	</div>
 	
 	<!-- Login -->
@@ -81,15 +86,61 @@
 		</div>
 		<div data-role="content">
 			<div data-role="fieldcontain">
-				<input name="username" id="input-username" placeholder="username" value=""
+				<input name="username" id="login-input-username" placeholder="username" value=""
 				type="text">
 			</div>
 			<div data-role="fieldcontain">
-				<input name="password" id="input-password" placeholder="password" value=""
+				<input name="password" id="login-input-password" placeholder="password" value=""
 				type="password">
 			</div>
 			<input id="login-submit" data-theme="a" data-icon="check" data-iconpos="left"
 			value="Login" type="submit">
+		</div>
+	</div>
+
+	<!-- register -->
+	<div data-role="page" id="register">
+		<div data-theme="a" data-role="header">
+			<h3 class="title">
+				Register
+			</h3>
+		</div>
+		<div data-role="content">
+			<div data-role="fieldcontain">
+				<input name="username" id="register-input-username" placeholder="username" value=""
+					   type="text">
+			</div>
+			<div data-role="fieldcontain">
+				<input name="password" id="register-input-password" placeholder="password" value=""
+					   type="password">
+			</div>
+			<div data-role="fieldcontain">
+				<input name="passwordConfirm" id="register-input-passwordConfirm" placeholder="repeat password" value=""
+					   type="password">
+			</div>
+			<input id="register-submit" data-theme="a" data-icon="check" data-iconpos="left"
+				   value="Register" type="submit">
+		</div>
+	</div>
+
+	<!-- new post -->
+	<div data-role="page" id="newPost">
+		<div data-theme="a" data-role="header">
+			<h3 class="title">
+				New Post
+			</h3>
+		</div>
+		<div data-role="content">
+			<div data-role="fieldcontain">
+				<textarea name="text" id="newPost-text" placeholder="message" value=""
+					   type="text" ></textarea>
+			</div>
+			<div data-role="fieldcontain">
+				<input name="link" id="newPost-link" placeholder="link" value=""
+					   type="url">
+			</div>
+			<input id="newPostSave" data-theme="a" data-icon="check" data-iconpos="left"
+				   value="Post" type="submit">
 		</div>
 	</div>
     </body>
