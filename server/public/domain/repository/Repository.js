@@ -1,6 +1,14 @@
 ﻿(function ($) {
     "use strict";
 
+	jQuery.extend({
+		postJSON: function( url, data, callback) {
+			return jQuery.post(url, data, callback, "json");
+		}
+	});
+
+
+
 	var Repository = window.App.Model.Repository;
 
 	Repository.PostRepository = {};
@@ -10,8 +18,16 @@
 		$.getJSON( "/entries", function(data) {
 			posts = data;
 		});
-		console.log(posts);
 		return posts;
+	};
+
+
+	Repository.UserRepository = {};
+	Repository.UserRepository.addUser = function(username, password) {
+		$.ajaxSetup( { "async": false } );
+		$.postJSON( "/register", { name: username, password: password }, function(data) {
+			console.log(data);
+		});
 	};
 
 })(jQuery);
