@@ -4,6 +4,10 @@
 	<title>InTeTestat</title>
 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+	
+	 <link href="resources/stylesheets/detail.css" rel="stylesheet" />
+    <link href="resources/stylesheets/app.css" rel="stylesheet" />	
+	
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 
@@ -16,8 +20,10 @@
     <script src="lib/jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.js"></script>
 
 	<script src="domain/repository/Repository.js"></script>
-
+	<script src="application/detailControler.js"></script>
 	<script src="main.js"></script>
+	
+
 
 </head>
 <body>
@@ -29,9 +35,11 @@
 		<a href="#logout" data-role="button">Logout</a>
 	</div>
 	
-<div data-role="header">
+	
+	
+	<div data-role="header">
 			Post from ... Set on 48.91.6124
-		</div>		
+	</div>		
 	
 	<div data-role="content">
 		
@@ -41,17 +49,30 @@
 			<a>url.to.the-posted-link</a>		
 		</div>
 				
-		
-		<div class= "scrollbox">
+		<div id="wrapper">
+			<div id="scroller">
 				<ul id="postList" data-role="listview" data-divider-theme="b" data-inset="true">
 				
-				<li data-theme="c">Comment</li>
-				<li data-theme="c">Comment</li>
-				<li data-theme="c">Comment</li>
-				<li data-theme="c">Comment</li>
-			
-			</ul>
-		</div>	
+					{{~it.comments :comment:index}}
+						<li data-theme="c">Comment
+							<div class="comment">
+								<div class="commentInfo">
+									<span class="commentOwner">{{=comment.owner.name}}</span>
+									<span class="commentTime">{{=comment.time}}</span>								
+								</div>
+								<div class="commentText">
+									<span class="Text">{{=comment.text}}</span>								
+								</div>
+								<div class="commentVote">
+									<span class="rating">{{=comment.rating.value}}</span>
+								</div>
+							</div>												
+						</li>
+					{{~}}			
+						
+				</ul>
+			</div>
+		</div>
 	</div>
 	
 	<div data-role="footer">
@@ -60,6 +81,6 @@
 		<a href="#" data-role="button" data-inline="true" data-icon="plus">New Post</a>
 	</div>	
 </div>
-  
+
 </body>
 </html>
