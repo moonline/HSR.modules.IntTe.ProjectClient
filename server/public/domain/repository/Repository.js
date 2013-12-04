@@ -21,6 +21,16 @@
 		return posts;
 	};
 
+	Repository.PostRepository.getCommentsById = function (id) {
+		var comments = [];
+		$.ajaxSetup( { "async" : false} );
+		$.getJSON( "/entries/id", function (data) {
+			comments = data;
+		});
+		return comments;
+	};
+
+
 
 	Repository.UserRepository = {};
 	Repository.UserRepository.addUser = function(username, password) {
