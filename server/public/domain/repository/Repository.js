@@ -10,6 +10,7 @@
 		$.getJSON( "/entries", function(data) {
 			posts = data;
 		});
+		console.log(posts);
 		return posts;
 	};
 

@@ -1,11 +1,12 @@
 ﻿(function($) {
 
-	$(document).ready(function(){
-		var dotTemplate = doT.template(document.getElementById('postList').innerHTML);
+	$('#list').ready(function(){
+		var dotTemplate = doT.template(document.getElementById('list').innerHTML);
 		var viewModel = {
+			title: 'Better Reddit',
 			posts: App.Model.Repository.PostRepository.findAll()
 		};
-		document.getElementById('postList').innerHTML = dotTemplate(viewModel);
+		document.getElementById('list').innerHTML = dotTemplate(viewModel);
 	});
    
 })(jQuery);
