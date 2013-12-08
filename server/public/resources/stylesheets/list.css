@@ -1,9 +1,10 @@
+.halfButton.left { border-bottom-right-radius: 0; border-top-right-radius: 0; }
+.halfButton.right { border-bottom-left-radius: 0; border-top-left-radius: 0; }
+
 #list span { display: inline-block; }
 
 #list .listHeader { display: flex; flex-direction: row; justify-content: space-between; }
 #list .listHeader .loginRegister { display: flex; flex-direction: row; padding-right: 0.25em; }
-#list .listHeader .loginRegister .loginButton { border-bottom-right-radius: 0; border-top-right-radius: 0; }
-#list .listHeader .loginRegister .registerButton { border-bottom-left-radius: 0; border-top-left-radius: 0; }
 
 .post { display: flex; flex-direction: row; }
 .post .postInfo, .post .postContent { display: flex; flex-direction: column; }

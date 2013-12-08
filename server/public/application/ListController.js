@@ -2,23 +2,31 @@
 	'use strict';
 
 	var Repository = App.Model.Repository;
+	var Controller = App.Controller;
 
 	var listTemplateSrc;
-	$(document).delegate('#list', 'pagebeforeshow', function () {
+	$(document).delegate('#list', 'pagecreate', function () {
 		console.log('render list template');
 		if(!listTemplateSrc) {
 			listTemplateSrc = document.getElementById('list').innerHTML;
 		}
 		var listTemplate = doT.template(listTemplateSrc);
+		console.log(Controller.UserController.isLoggedIn());
 		var viewModel = {
+			user: Controller.UserController.getLoggedInUser(),
 			title: 'Better Reddit',
 			posts: Repository.PostRepository.findAll()
 		};
 		document.getElementById('list').innerHTML = listTemplate(viewModel);
-		$('#list').listview().listview('refresh')
 	});
 
+	$('#logoutButton').ready(function() {
+		$('#logoutButton').bind('click', function(event, ui) {
+			Controller.UserController.logout();
 
+			window.location.href = "/list.html";
+		});
+	});
 
 
 	$('#register').ready(function(){
@@ -28,11 +36,49 @@
 			var passwordConfirm = $('#register-input-passwordConfirm').val();
 
 			if(password === passwordConfirm) {
-				Repository.UserRepository.addUser(username, password);
+				var state = Repository.UserRepository.addUser(username, password);
+				if(state) {
+					console.log('user '+username+' added');
+				} else {
+					console.log('error while adding user');
+				}
+			} else {
+				console.log('password confirmation does not match');
 			}
 
-			event.preventDefault();
+			window.location.href = "/list.html";
+
+			return false;
 		});
 	});
 
+	$('#login').ready(function(){
+		$('#loginForm').submit(function(event) {
+			var username = $('#login-input-username').val();
+			var password = $('#login-input-password').val();
+
+			var loggedIn = Controller.UserController.login(username, password);
+			if(loggedIn) {
+				console.log('successful logged in');
+				Controller.UserController.getLoggedInUser();
+				window.location.href = "/list.html";
+			} else {
+				console.log('login error');
+			}
+
+			return false;
+		});
+	});
+
+	$('#newPost').ready(function(){
+		$('#newPostForm').submit(function(event) {
+			var text = $('#newPost-text').val();
+			var link = $('#newPost-link').val();
+
+			Repository.PostRepository.addPost(text, link);
+			window.location.href = "/list.html";
+
+			return false;
+		});
+	});
 })(jQuery);

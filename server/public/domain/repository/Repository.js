@@ -8,7 +8,6 @@
 	});
 
 
-
 	var Repository = window.App.Model.Repository;
 
 	Repository.PostRepository = {};
@@ -30,14 +29,24 @@
 		return comments;
 	};
 
+	Repository.PostRepository.addPost = function (text, link) {
+		var newPost = null;
+		$.ajaxSetup( { "async" : false} );
+		$.postJSON( "/entry", { title: text, url: link }, function(data) {
+			newPost = data;
+		});
+		return newPost;
+	};
 
 
 	Repository.UserRepository = {};
 	Repository.UserRepository.addUser = function(username, password) {
+		var state = false;
 		$.ajaxSetup( { "async": false } );
 		$.postJSON( "/register", { name: username, password: password }, function(data) {
-			console.log(data);
+			state = data;
 		});
+		return state;
 	};
 
 })(jQuery);
