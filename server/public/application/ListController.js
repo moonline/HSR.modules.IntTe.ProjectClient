@@ -17,8 +17,10 @@
 			title: 'Better Reddit',
 			posts: Repository.PostRepository.findAll()
 		};
+		console.log(JSON.stringify(Repository.PostRepository.findAll()));
 		document.getElementById('list').innerHTML = listTemplate(viewModel);
 	});
+
 
 	$('#logoutButton').ready(function() {
 		$('#logoutButton').bind('click', function(event, ui) {
@@ -39,14 +41,16 @@
 				var state = Repository.UserRepository.addUser(username, password);
 				if(state) {
 					console.log('user '+username+' added');
+					$('#registerForm .ui-submit').addClass('success');
+					window.location.href = "/list.html";
 				} else {
 					console.log('error while adding user');
+					$('#registerForm .ui-submit').addClass('error');
 				}
 			} else {
 				console.log('password confirmation does not match');
+				$('#registerForm .ui-submit').addClass('error');
 			}
-
-			window.location.href = "/list.html";
 
 			return false;
 		});
@@ -61,9 +65,11 @@
 			if(loggedIn) {
 				console.log('successful logged in');
 				Controller.UserController.getLoggedInUser();
+				$('#loginForm .ui-submit').addClass('success');
 				window.location.href = "/list.html";
 			} else {
 				console.log('login error');
+				$('#loginForm .ui-submit').addClass('error');
 			}
 
 			return false;

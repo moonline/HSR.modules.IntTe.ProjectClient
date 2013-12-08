@@ -1,13 +1,40 @@
 .halfButton.left { border-bottom-right-radius: 0; border-top-right-radius: 0; }
 .halfButton.right { border-bottom-left-radius: 0; border-top-left-radius: 0; }
 
-#list span { display: inline-block; }
+.error.ui-submit { background: maroon; background: linear-gradient(red, maroon); }
+.success.ui-submit { background: green; background: linear-gradient(seagreen, darkgreen); }
 
+
+#list span { display: inline-block; }
+#list { background: url("../images/wallpaperFire.jpg"); background-size: cover; }
+
+#list h3 { display: inline-block; margin: 1em 0px 0px 1em; }
+
+
+/* header */
 #list .listHeader { display: flex; flex-direction: row; justify-content: space-between; }
 #list .listHeader .loginRegister { display: flex; flex-direction: row; padding-right: 0.25em; }
+#list .listHeader .loginRegister .ui-btn-inner { min-width: 10em; }
 
-.post { display: flex; flex-direction: row; }
+
+/* list */
+#list .ui-btn-up-c { background: black; background: rgba(0,0,0,0.75); background: linear-gradient(rgba(50,50,50,0.75), rgba(0,0,0,0.75)); color: white;
+	border: 1px solid black; border: 1px solid rgba(0,0,0,0.75);
+}
+#list .ui-btn-up-c:hover, #list .ui-btn-hover-c { background: black; background: rgba(0,0,0,0.9);
+	background: linear-gradient(rgba(50,50,50,0.9), rgba(0,0,0,0.9)); border: 1px solid black;
+}
+#list .ui-btn-up-c:active, #list .ui-btn-down-c { background: black; background: rgba(0,0,0,0.6);
+	background: linear-gradient(rgba(50,50,50,0.6), rgba(0,0,0,0.6)); border: 1px solid black; border: 1px solid rgba(0,0,0,0.6);
+}
+
+
+/* footer */
+#list .listFooter { padding: 0.5em; display: flex; flex-direction: row; justify-content: space-between; }
+
+.post { display: flex; flex-direction: row; color: white; text-shadow: none; }
 .post .postInfo, .post .postContent { display: flex; flex-direction: column; }
+.post .info { font-weight: normal; }
 
 .verticalDivider { width: 0.05em; margin: 0 0.5em;
 	background: black; background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 100%);
