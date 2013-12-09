@@ -22,7 +22,7 @@
 	
 	Repository.PostRepository.getPostById = function (id) {
 		var post = {};
-		$.ajaxSetpu( {"async" : false} );
+		$.ajaxSetup( {"async" : false} );
 		$.getJSON( "/entry/"+ id, function (data) {
 			post = data;
 		});
@@ -30,9 +30,6 @@
 	};
 
 	Repository.PostRepository.getCommentsById = function (id) {
-		
-		
-		
 		var comments = [];
 		$.ajaxSetup( { "async" : false} );
 		$.getJSON( "/entries/" + id + "/comment", function (data) {

@@ -5,13 +5,15 @@
 	var Controller = App.Controller;
 	var detailTemplateSrc;
 	
-	$(document).delegate('#detail', 'pagecreate', function () {
-		console.log('render list template');
+	$(document).delegate('#detail', 'pageshow', function () {
+		console.log('render detail template');
 		if(!detailTemplateSrc) {
 			detailTemplateSrc = document.getElementById('detail').innerHTML;
 		}
 		var detailTemplate = doT.template(detailTemplateSrc);
-		var postId = $.url(document.location).param("post");		
+
+		var postId = $.url(document.location).param("post");
+
 		var views = {
 			user: Controller.UserController.getLoggedInUser(),
 			post: Repository.PostRepository.getPostById(postId)

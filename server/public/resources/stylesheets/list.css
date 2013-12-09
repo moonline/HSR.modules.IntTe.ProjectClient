@@ -6,7 +6,6 @@
 
 
 #list span { display: inline-block; }
-#list { background: url("../images/wallpaperFire.jpg"); background-size: cover; }
 
 #list h3 { display: inline-block; margin: 1em 0px 0px 1em; }
 
@@ -18,13 +17,13 @@
 
 
 /* list */
-#list .ui-btn-up-c { background: black; background: rgba(0,0,0,0.75); background: linear-gradient(rgba(50,50,50,0.75), rgba(0,0,0,0.75)); color: white;
+.page .ui-btn-up-c { background: black; background: rgba(0,0,0,0.75); background: linear-gradient(rgba(50,50,50,0.75), rgba(0,0,0,0.75)); color: white;
 	border: 1px solid black; border: 1px solid rgba(0,0,0,0.75);
 }
-#list .ui-btn-up-c:hover, #list .ui-btn-hover-c { background: black; background: rgba(0,0,0,0.9);
+.page .ui-btn-up-c:hover, #list .ui-btn-hover-c { background: black; background: rgba(0,0,0,0.9);
 	background: linear-gradient(rgba(50,50,50,0.9), rgba(0,0,0,0.9)); border: 1px solid black;
 }
-#list .ui-btn-up-c:active, #list .ui-btn-down-c { background: black; background: rgba(0,0,0,0.6);
+.page .ui-btn-up-c:active, #list .ui-btn-down-c { background: black; background: rgba(0,0,0,0.6);
 	background: linear-gradient(rgba(50,50,50,0.6), rgba(0,0,0,0.6)); border: 1px solid black; border: 1px solid rgba(0,0,0,0.6);
 }
 

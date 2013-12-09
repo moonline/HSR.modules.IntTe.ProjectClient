@@ -34,9 +34,25 @@ var comments = [];
 
 //sample data
 entries.push(new Link(entries.length, "Title", "Author", "http://www.google.ch"));
-var comment = new Comment(0, "TestComment", "Author");
+entries.push(new Link(entries.length, "White-gray dogbird.", "The Dog", "http://cdn.buzznet.com/assets/users16/toystory6/default/dog-bird-hybrid--large-msg-118228041409.jpg"));
+entries.push(new Link(entries.length, "baby dogbird", "dobirds daddy", "http://www.ing.unibs.it/~zkovacs/dp/data/dogbirdBig.jpg"));
+entries.push(new Link(entries.length, "Cat rubbers bank", "bankwatcher", "http://carnivorousplantsgarden.com/65-274-thickbox/animal-repellent-cat-dog-bird-rabbit.jpg"));
+
+var comment = new Comment(comments.length, "TestComment", "Author");
 comments.push(comment);
 entries[0].comments.push(comment);
+
+var c2 = new Comment(comments.length, "Very nice dog", "catwoman");
+comments.push(c2);
+entries[1].comments.push(c2);
+
+var c3 = new Comment(comments.length, "Ugly dog", "superman");
+comments.push(c3);
+entries[1].comments.push(c3);
+
+var c4 = new Comment(comments.length, "Sweet!!!", "mermade");
+comments.push(c4);
+entries[2].comments.push(c4);
 
 //default user
 users.push(new User(users.length, "a", "a") );
