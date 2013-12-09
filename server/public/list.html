@@ -24,6 +24,7 @@
 	<script src="domain/repository/Repository.js"></script>
 	<script src="application/ListController.js"></script>
 	<script src="application/UserController.js"></script>
+	<script src"application/DetailController.js"></script>
 
 	<script src="main.js"></script>
     
@@ -60,7 +61,7 @@
 			<ul id="postList" data-role="listview" data-divider-theme="b" data-inset="true">
 				{{~it.posts :post:index}}
 				<li data-theme="c">
-					<a href="detail.html" data-transition="slide">
+					<a href="detail.html?post={{post.id}}" data-transition="slide">
 						<div class="post">
 							<div class="postInfo">
 								<span class="rating">

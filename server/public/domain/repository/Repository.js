@@ -19,11 +19,23 @@
 		});
 		return posts;
 	};
+	
+	Repository.PostRepository.getPostById = function (id) {
+		var post = {};
+		$.ajaxSetpu( {"async" : false} );
+		$.getJSON( "/entry/"+ id, function (data) {
+			post = data;
+		});
+		return post;
+	};
 
 	Repository.PostRepository.getCommentsById = function (id) {
+		
+		
+		
 		var comments = [];
 		$.ajaxSetup( { "async" : false} );
-		$.getJSON( "/entries/id", function (data) {
+		$.getJSON( "/entries/" + id + "/comment", function (data) {
 			comments = data;
 		});
 		return comments;

@@ -3,30 +3,29 @@
 <head>
 	<title>InTeTestat</title>
 
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
 	
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+		
 	 <link href="resources/stylesheets/detail.css" rel="stylesheet" />
     <link href="resources/stylesheets/app.css" rel="stylesheet" />	
 	
-	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-
-	<script src="Namespaces.js"></script>
-
-	<!--<script src="core/core.js"></script>-->
-
     <script src="lib/doT/doT.2011.js"></script>
     <script src="lib/jquery-2.0.3.js"></script>
     <script src="lib/jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.js"></script>
 
-	<script src="domain/repository/Repository.js"></script>
-	<script src="application/detailControler.js"></script>
-	<script src="main.js"></script>
-	
+	<script src="lib/perl/perl.js"></script>
+	<script src="Namespaces.js"></script>
 
+	<!--<script src="core/core.js"></script>-->
+
+	<script src="domain/repository/Repository.js"></script>
+	<script src="application/detailController.js"></script>
+	<script src="main.js"></script>
 
 </head>
 <body>
+
+<script src="main.js"></script>
 
 <div data-role="page" id="detail">
 	<div data-role="header" id="mainHeader">
@@ -35,30 +34,26 @@
 		<a href="#logout" data-role="button">Logout</a>
 	</div>
 	
-	
-	
 	<div data-role="header">
-			Post from ... Set on 48.91.6124
-	</div>		
-	
+			Repository.Post
+			Post from {{=it.post.author}}, {{=it.post.createTimeDisplay}}
+	</div>	
 	<div data-role="content">
-		
-		
 		<div class = "Title">
-			<h2>{{Title of the Post}}</h2>
-			<a>url.to.the-posted-link</a>		
+			<h2>{{=it.post.title}}</h2>
+			<a>{{=it.post.url}}</a>		
 		</div>
 				
 		<div id="wrapper">
 			<div id="scroller">
 				<ul id="postList" data-role="listview" data-divider-theme="b" data-inset="true">
 				
-					{{~it.comments :comment:index}}
+					{{~it.post.comments :comment:index}}
 						<li data-theme="c">Comment
 							<div class="comment">
 								<div class="commentInfo">
-									<span class="commentOwner">{{=comment.owner.name}}</span>
-									<span class="commentTime">{{=comment.time}}</span>								
+									<span class="commentOwner">{{=comment.author}}</span>
+									<span class="commentTime">{{=comment.createTimeDisplay}}</span>								
 								</div>
 								<div class="commentText">
 									<span class="Text">{{=comment.text}}</span>								
@@ -74,13 +69,17 @@
 			</div>
 		</div>
 	</div>
-	
 	<div data-role="footer">
 		<a href="#" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-u"> up</a>
   		<a href="#" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-d"> down</a>
-		<a href="#" data-role="button" data-inline="true" data-icon="plus">New Post</a>
+		<a href="#newComment" data-role="button" data-inline="true" data-icon="plus">New Comment</a>
 	</div>	
 </div>
+
+<div data-role="page" id="newComment">
+
+</div>
+
 
 </body>
 </html>
