@@ -29,13 +29,22 @@
 		return post;
 	};
 
+	Repository.PostRepository.votePost = function (postId, positive) {
+		$.ajaxSetup( {"async" : false} );
+		if(positive) {
+			$.postJSON( "/entry/"+postId+"/up", {}, function(data) {});
+		} else {
+			$.postJSON( "/entry/"+postId+"/down", {}, function(data) {});
+		}
+	};
+
+	Repository.PostRepository.addComment = function (postId, commentText) {
+		$.ajaxSetup( {"async" : false} );
+		$.postJSON( "/entry/"+postId+"/comment", { text: commentText }, function(data) {});
+	};
+
 	Repository.PostRepository.getCommentsById = function (id) {
-		var comments = [];
-		$.ajaxSetup( { "async" : false} );
-		$.getJSON( "/entries/" + id + "/comment", function (data) {
-			comments = data;
-		});
-		return comments;
+		return Repository.PostRepository.getPostById(id).comments;
 	};
 
 	Repository.PostRepository.addPost = function (text, link) {

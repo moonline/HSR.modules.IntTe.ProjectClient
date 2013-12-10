@@ -29,59 +29,65 @@
 </head>
 <body>
 
-<script src="main.js"></script>
-
-<div data-role="page" class="page" id="detail">
-	<div data-role="header" id="mainHeader">
-		<a href="list.html" data-role="button" data-icon="arrow-l">Back to List</a>
-		<h1>Hi Hero!</h1>
-		<a href="#logout" data-role="button">Logout</a>
-	</div>
-	
-	<div data-role="header">
-			Post from {{=it.post.author}}, {{=it.post.createTimeDisplay}}
-	</div>	
-	<div data-role="content">
-		<div class = "Title">
-			<h2>{{=it.post.title}}</h2>
-			<a href="{{=it.post.url}}" target="_blank">{{=it.post.url}}</a>
+	<!-- detail -->
+	<div data-role="page" class="page" id="detail">
+		<div data-theme="a" data-role="header" id="mainHeader">
+			<a href="list.html" data-role="button" data-icon="arrow-l">Back to List</a>
+			<h1>Hi Hero!</h1>
+			<a href="#logout" data-role="button">Logout</a>
 		</div>
-				
-		<div id="wrapper">
-			<div id="scroller">
-				<ul id="commentList" data-role="listview" data-divider-theme="b" data-inset="true">
-				
-					{{~it.post.comments :comment:index}}
-						<li data-theme="c">Comment
-							<div class="comment">
-								<div class="commentInfo">
-									<span class="commentOwner">{{=comment.author}}</span>
-									<span class="commentTime">{{=comment.createTimeDisplay}}</span>								
+		<div data-role="content" >
+			<div data-role="header" data-theme="a" data-role="header">
+				<span class="rating">
+					<span class="icon icon-liga">&#xe121;</span>&nbsp;
+					{{=it.post.rating.value}}
+				</span>&nbsp;,
+				Post from "{{=it.post.author}}", {{=it.post.createTimeDisplay}}
+			</div>
+			<div class = "Title">
+				<h2>{{=it.post.title}}</h2>
+				<a href="{{=it.post.url}}" target="_blank">{{=it.post.url}}</a>
+			</div>
+
+			<div id="wrapper">
+				<div id="scroller">
+					<ul id="commentList" data-role="listview" data-divider-theme="b" data-inset="true">
+
+						{{~it.post.comments :comment:index}}
+							<li data-theme="c">Comment
+								<div class="comment">
+									<div class="commentInfo">
+										<span class="commentOwner">{{=comment.author}}</span>
+										<span class="commentTime">{{=comment.createTimeDisplay}}</span>
+									</div>
+									<div class="commentText">
+										<span class="Text">{{=comment.text}}</span>
+									</div>
+									<div class="commentVote">
+										<span class="rating">{{=comment.rating.value}}</span>
+									</div>
 								</div>
-								<div class="commentText">
-									<span class="Text">{{=comment.text}}</span>								
-								</div>
-								<div class="commentVote">
-									<span class="rating">{{=comment.rating.value}}</span>
-								</div>
-							</div>												
-						</li>
-					{{~}}			
-						
-				</ul>
+							</li>
+						{{~}}
+
+					</ul>
+				</div>
 			</div>
 		</div>
+		<div data-theme="a" data-role="footer" data-position="fixed" >
+			{{? it.user }}
+			<a id="votePostUp" data-post="{{=it.post.id}}" href="detail.html?post={{=it.post.id}}" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-u"> up</a>
+			<a id="votePostDown" data-post="{{=it.post.id}}" href="detail.html?post={{=it.post.id}}" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-d"> down</a>
+			<a href="#newComment" data-role="button" data-inline="true" data-icon="plus">New Comment</a>
+			{{?}}
+		</div>
 	</div>
-	<div data-role="footer">
-		<a href="#" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-u"> up</a>
-  		<a href="#" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-d"> down</a>
-		<a href="#newComment" data-role="button" data-inline="true" data-icon="plus">New Comment</a>
-	</div>	
-</div>
 
-<div data-role="page" id="newComment">
 
-</div>
+	<!-- new comment -->
+	<div data-role="page" id="newComment">
+
+	</div>
 
 
 </body>

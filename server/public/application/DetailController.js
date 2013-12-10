@@ -20,5 +20,22 @@
 		};
 		document.getElementById('detail').innerHTML = detailTemplate(views);
 	});
+
+
+	$('#detail').ready(function() {
+		$('#votePostUp').click(function() {
+			var postId = $(this).attr('data-post');
+			Repository.PostRepository.votePost(postId, true);
+
+			window.location.href = "/detail.html?post="+postId;
+		});
+
+		$('#votePostDown').click(function() {
+			var postId = $(this).attr('data-post');
+			Repository.PostRepository.votePost(postId, false);
+
+			window.location.href = "/detail.html?post="+postId;
+		});
+	});
 	
 })(jQuery);

@@ -54,8 +54,27 @@ var c4 = new Comment(comments.length, "Sweet!!!", "mermade");
 comments.push(c4);
 entries[2].comments.push(c4);
 
+var c5 = new Comment(comments.length, "Looks like a little dragon :-)", "merlin");
+comments.push(c5);
+entries[2].comments.push(c5);
+
+var c52 = new Comment(comments.length, "Is it eatable?", "jing hung");
+comments.push(c52);
+entries[2].comments.push(c52);
+
+var c6 = new Comment(comments.length, "My cat rubbers banks too. Every week we have a million more.", "cat gang chef");
+comments.push(c6);
+entries[3].comments.push(c6);
+
+var c7 = new Comment(comments.length, "Sweet little criminal cat.", "catwoman");
+comments.push(c7);
+entries[3].comments.push(c7);
+
+
 //default user
 users.push(new User(users.length, "a", "a") );
+users.push(new User(users.length, "saly", "saly") );
+users.push(new User(users.length, "frank", "frank") );
   
 function findUser(name)
 {
