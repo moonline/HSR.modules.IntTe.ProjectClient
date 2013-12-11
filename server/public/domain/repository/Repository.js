@@ -44,6 +44,9 @@
 		$.postJSON( "/entry/"+postId+"/comment", { text: commentText }, function(data) {
 			newComment = data;		
 		});
+		$.postJSON( "/comment/"+ postId , { text: commentText }, function(data) {
+			newComment = data;		
+		});
 		return newComment;
 	};
 

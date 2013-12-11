@@ -33,7 +33,6 @@
 		$('#votePostDown').click(function() {
 			var postId = $(this).attr('data-post');
 			Repository.PostRepository.votePost(postId, false);
-
 			window.location.href = "/detail.html?post="+postId;
 		});
 	});
@@ -42,10 +41,9 @@
 	 $('#newComment').ready(function(){
 		$('#newCommentForm').submit(function(event) {
 			var postId = $(this).attr('data-post');
+			var textC = $('#newCommentText').val();
+			Repository.PostRepository.addComment(postId, textC);
 			
-			
-			var text = $('#newCommentText').val();
-			Repository.PostRepository.addComment(postId, text);
 			window.location.href = "/detail.html?post="+postId;
 			return false;
 		});

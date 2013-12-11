@@ -39,9 +39,7 @@
 		<div data-role="content" >
 			<div data-role="header" data-theme="a" data-role="header">
 				<span class="rating">
-					<span class="icon icon-liga">&#xe121;</span>&nbsp;
-					{{=it.post.rating.value}}
-				</span>&nbsp;,
+					
 				Post from "{{=it.post.author}}", {{=it.post.createTimeDisplay}}
 			</div>
 			<div class = "Title">
@@ -79,7 +77,7 @@
 			<a id="votePostUp" data-post="{{=it.post.id}}" href="detail.html?post={{=it.post.id}}" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-u"> up</a>
 			<a id="votePostDown" data-post="{{=it.post.id}}" href="detail.html?post={{=it.post.id}}" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-d"> down</a>
 			<a data-role="button" href="#newComment" data-icon="add" data-iconpos="left" data-rel="dialog" 
-				class="newCommentButton">new Comment
+				class="newCommentButton" data-post="{{=it.post.id}}">new Comment
 			</a>		
 			{{?}}
 		</div>
@@ -103,11 +101,6 @@
 					   value="Comment" type="submit">
 				</form>
 			</div>
-
-
-
-
-
 	</div>
 
 
