@@ -11,14 +11,25 @@
 			listTemplateSrc = document.getElementById('list').innerHTML;
 		}
 		var listTemplate = doT.template(listTemplateSrc);
-		console.log(Controller.UserController.isLoggedIn());
+
 		var viewModel = {
 			user: Controller.UserController.getLoggedInUser(),
 			title: 'Better Reddit',
 			posts: Repository.PostRepository.findAll()
 		};
-		console.log(JSON.stringify(Repository.PostRepository.findAll()));
 		document.getElementById('list').innerHTML = listTemplate(viewModel);
+	});
+
+	$('#list').ready(function(){
+		$('#list .linkToDetail').click(function() {
+			var target = $(this).attr('href');
+			jQuery.mobile.changePage(target, {
+				allowSamePageTransition: true,
+				reloadPage: true
+			});
+
+			return false;
+		});
 	});
 
 

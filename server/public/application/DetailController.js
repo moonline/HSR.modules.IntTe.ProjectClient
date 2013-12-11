@@ -4,15 +4,16 @@
 	var Repository = App.Model.Repository;
 	var Controller = App.Controller;
 	var detailTemplateSrc;
-	
-	$(document).delegate('#detail', 'pageshow', function () {
+
+	var postId;
+	$(document).delegate('#detail', 'pagebeforeshow', function () {
 		console.log('render detail template');
 		if(!detailTemplateSrc) {
 			detailTemplateSrc = document.getElementById('detail').innerHTML;
 		}
 		var detailTemplate = doT.template(detailTemplateSrc);
 
-		var postId = $.url(document.location).param("post");
+		postId = $.url(document.location.href).param("post");
 
 		var views = {
 			user: Controller.UserController.getLoggedInUser(),
@@ -40,10 +41,9 @@
 	
 	 $('#newComment').ready(function(){
 		$('#newCommentForm').submit(function(event) {
-			var postId = $(this).attr('data-post');
-			var textC = $('#newCommentText').val();
+			var textC = $('#newCommentTextfield').val();
 			Repository.PostRepository.addComment(postId, textC);
-			
+
 			window.location.href = "/detail.html?post="+postId;
 			return false;
 		});
