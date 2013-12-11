@@ -36,7 +36,7 @@
 			<h1>Hi Hero!</h1>
 			<a href="#logout" data-role="button">Logout</a>
 		</div>
-		<div data-role="content" >
+		<div data-role="content" class="content">
 			<div data-role="header" data-theme="a" data-role="header">
 				<span class="rating">
 					
@@ -47,30 +47,26 @@
 				<a href="{{=it.post.url}}" target="_blank">{{=it.post.url}}</a>
 			</div>
 
-			<div id="wrapper">
-				<div id="scroller">
-					<ul id="commentList" data-role="listview" data-divider-theme="b" data-inset="true">
+			<ul id="commentList" data-role="listview" data-divider-theme="b" data-inset="true">
 
-						{{~it.post.comments :comment:index}}
-							<li data-theme="c">Comment
-								<div class="comment">
-									<div class="commentInfo">
-										<span class="commentOwner">{{=comment.author}}</span>
-										<span class="commentTime">{{=comment.createTimeDisplay}}</span>
-									</div>
-									<div class="commentText">
-										<span class="Text">{{=comment.text}}</span>
-									</div>
-									<div class="commentVote">
-										<span class="rating">{{=comment.rating.value}}</span>
-									</div>
-								</div>
-							</li>
-						{{~}}
+				{{~it.post.comments :comment:index}}
+					<li data-theme="c">Comment
+						<div class="comment">
+							<div class="commentInfo">
+								<span class="commentOwner">{{=comment.author}}</span>
+								<span class="commentTime">{{=comment.createTimeDisplay}}</span>
+							</div>
+							<div class="commentText">
+								<span class="Text">{{=comment.text}}</span>
+							</div>
+							<div class="commentVote">
+								<span class="rating">{{=comment.rating.value}}</span>
+							</div>
+						</div>
+					</li>
+				{{~}}
 
-					</ul>
-				</div>
-			</div>
+			</ul>
 		</div>
 		<div data-theme="a" data-role="footer" data-position="fixed" >
 			{{? it.user }}

@@ -9,7 +9,7 @@
 	$(document).delegate('#detail', 'pagebeforeshow', function () {
 		console.log('render detail template');
 		if(!detailTemplateSrc) {
-			detailTemplateSrc = document.getElementById('detail').innerHTML;
+			detailTemplateSrc = $('#detail').html();
 		}
 		var detailTemplate = doT.template(detailTemplateSrc);
 
@@ -19,7 +19,7 @@
 			user: Controller.UserController.getLoggedInUser(),
 			post: Repository.PostRepository.getPostById(postId)
 		};
-		document.getElementById('detail').innerHTML = detailTemplate(views);
+		$('#detail').html(detailTemplate(views));
 	});
 
 
