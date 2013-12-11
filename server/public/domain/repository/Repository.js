@@ -37,6 +37,16 @@
 			$.postJSON( "/entry/"+postId+"/down", {}, function(data) {});
 		}
 	};
+	
+	Repository.PostRepository.voteComment = function (commentId, positive) {
+		$.ajaxSetup({"async" : false});
+		if (positive) {
+			$.postJSON("/comment/"+commentId+"/up", {}, function (data) {});
+		}else{
+			$.postJSON("/comment/"+commentId+"/down", {}, function (data) {});
+		}
+	};	
+	
 
 	Repository.PostRepository.addComment = function (postId, commentText) {
 		var newComment = null;		

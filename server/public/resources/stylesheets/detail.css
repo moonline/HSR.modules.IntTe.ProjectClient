@@ -1,4 +1,14 @@
+#detail .detailHeader { display: flex; flex-direction: row; flex-flow:row; justify-content: space-between; }
+#detail .detailHeader .loginRegister { display: flex; flex-direction: row; padding-right: 0.25em; }
+#detail .detailHeader .loginRegister .ui-btn-inner { min-width: 10em; }
 
-#wrapper {overflow:auto;} 
 
-#scroller {height: 30em;}
+
+.comment { display: flex; flex-direction: row; color: white; text-shadow: none; }
+.comment .commentInfo, .comment .commentContent { display: flex; flex-direction: column; }
+.comment .info { font-weight: normal; }
+
+.verticalDivider { width: 0.05em; margin: 0 0.5em;
+	background: black; background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 100%);
+}
+

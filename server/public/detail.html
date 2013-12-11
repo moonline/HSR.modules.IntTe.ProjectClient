@@ -31,11 +31,31 @@
 
 	<!-- detail -->
 	<div data-role="page" class="page" id="detail">
-		<div data-theme="a" data-role="header" id="mainHeader">
-			<a href="list.html" data-role="button" data-icon="arrow-l">Back to List</a>
-			<h1>Hi Hero!</h1>
-			<a href="#logout" data-role="button">Logout</a>
+		
+		
+		<div data-theme="a" data-role="header"  class="detailHeader" title="Better Reddit">
+		
+				<a href="list.html" data-role="button" data-icon="arrow-l">Back to List</a>
+				<h3>{{? it.user}}Hi {{=it.user}}!{{?}}</h3>				
+				
+				<div class="loginRegister">
+					{{? it.user }}
+						<a data-role="button" id="logoutButton" href="detail.html?post={{=it.post.id}}" data-icon="arrow-r" data-iconpos="left" data-rel="dialog" class="logoutButton">
+							Logout {{=it.user}}
+						</a>
+					{{?}}
+
+					{{? !it.user }}
+						<a data-role="button" href="list.html#login" data-icon="arrow-r" data-iconpos="left" data-rel="dialog" class="loginButton halfButton left">
+							Login
+						</a>
+						<a id="nav-home" data-role="button" href="list.html#register" data-icon="add" data-iconpos="left" data-rel="dialog" class="registerButton halfButton right">
+							Register
+						</a>
+					{{?}}
+				</div>
 		</div>
+
 		<div data-role="content" class="content">
 			<div data-role="header" data-theme="a" data-role="header">
 				<span class="rating">
@@ -46,22 +66,47 @@
 				<h2>{{=it.post.title}}</h2>
 				<a href="{{=it.post.url}}" target="_blank">{{=it.post.url}}</a>
 			</div>
-
+			
 			<ul id="commentList" data-role="listview" data-divider-theme="b" data-inset="true">
 
 				{{~it.post.comments :comment:index}}
-					<li data-theme="c">Comment
+					<li data-theme="c">
 						<div class="comment">
 							<div class="commentInfo">
-								<span class="commentOwner">{{=comment.author}}</span>
-								<span class="commentTime">{{=comment.createTimeDisplay}}</span>
+								<span class="rating">
+									<span class="icon icon-liga">&#xe121;</span>&nbsp;
+									{{=comment.rating.value}}
+								</span>
+								<div class="voteButtons">
+									{{? it.user }}									
+									<a id="voteCommentUp" 
+										data-comment="{{=comment.id}}" 
+										data-post="{{=it.post.id}}"
+										href="detail.html?post={{=it.post.id}}" 
+										data-role="button" 
+										data-inline="true" 
+										data-mini="true" 
+										data-icon="arrow-u"> up</a>
+									<a id="voteCommentDown" 
+										data-comment="{{=comment.id}}" 
+										data-post="{{=it.post.id}}"
+										href="detail.html?post={{=it.post.id}}" 
+										data-role="button" 
+										data-inline="true" 
+										data-mini="true" 
+										data-icon="arrow-d"> down</a>
+									{{?}}								
+								</div>
 							</div>
-							<div class="commentText">
+							<div class="verticalDivider">&nbsp;</div>	
+							<div class="commentContent">
 								<span class="Text">{{=comment.text}}</span>
+								<span class="info">
+									<span class="icon-liga">&#xe137;</span>&nbsp;
+									{{=comment.author}} at {{=comment.createTimeDisplay}}
+								</span>
 							</div>
-							<div class="commentVote">
-								<span class="rating">{{=comment.rating.value}}</span>
-							</div>
+							
 						</div>
 					</li>
 				{{~}}
@@ -98,7 +143,6 @@
 			</form>
 		</div>
 	</div>
-
 
 </body>
 </html>

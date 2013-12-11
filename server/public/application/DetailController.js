@@ -38,6 +38,23 @@
 		});
 	});
 	
+	$('#detail').ready(function() {
+		$('#voteCommentUp').click(function() {
+			var postId = $(this).attr('data-post');
+			var commentId = $(this).attr('data-comment');			
+			Repository.PostRepository.voteComment(commentId, true);
+
+			window.location.href = "/detail.html?post="+postId;
+		});
+
+		$('#voteCommentDown').click(function() {
+			var postId = $(this).attr('data-post');
+			var commentId = $(this).attr('data-comment');
+			Repository.PostRepository.voteComment(commentId, false);
+			window.location.href = "/detail.html?post="+postId;
+		});
+	});  
+	
 	
 	 $('#newComment').ready(function(){
 		$('#newCommentForm').submit(function(event) {
