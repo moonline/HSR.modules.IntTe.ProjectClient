@@ -78,7 +78,9 @@
 			{{? it.user }}
 			<a id="votePostUp" data-post="{{=it.post.id}}" href="detail.html?post={{=it.post.id}}" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-u"> up</a>
 			<a id="votePostDown" data-post="{{=it.post.id}}" href="detail.html?post={{=it.post.id}}" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-d"> down</a>
-			<a href="#newComment" data-role="button" data-inline="true" data-icon="plus">New Comment</a>
+			<a data-role="button" href="#newComment" data-icon="add" data-iconpos="left" data-rel="dialog" 
+				class="newCommentButton">new Comment
+			</a>		
 			{{?}}
 		</div>
 	</div>
@@ -86,6 +88,25 @@
 
 	<!-- new comment -->
 	<div data-role="page" id="newComment">
+			<div data-theme="a" data-role="header">
+				<h3 class="title">
+					New Comment
+				</h3>
+			</div>
+			<div data-role="content" id="newCommentTextfield">
+				<form id="newCommentForm">
+					<div data-role="fieldcontain">
+						<textarea name="comment" id="commentText" value="" placeholder="message"
+						 type="text"></textarea> 
+					</div>
+					<input id="newCommentSave" data-theme="a" data-icon="check" data-iconpos="left"
+					   value="Comment" type="submit">
+				</form>
+			</div>
+
+
+
+
 
 	</div>
 

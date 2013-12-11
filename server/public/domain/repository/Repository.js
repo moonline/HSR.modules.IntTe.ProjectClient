@@ -39,8 +39,12 @@
 	};
 
 	Repository.PostRepository.addComment = function (postId, commentText) {
+		var newComment = null;		
 		$.ajaxSetup( {"async" : false} );
-		$.postJSON( "/entry/"+postId+"/comment", { text: commentText }, function(data) {});
+		$.postJSON( "/entry/"+postId+"/comment", { text: commentText }, function(data) {
+			newComment = data;		
+		});
+		return newComment;
 	};
 
 	Repository.PostRepository.getCommentsById = function (id) {

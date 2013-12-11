@@ -38,4 +38,18 @@
 		});
 	});
 	
+	
+	 $('#newComment').ready(function(){
+		$('#newCommentForm').submit(function(event) {
+			var postId = $(this).attr('data-post');
+			
+			
+			var text = $('#newCommentText').val();
+			Repository.PostRepository.addComment(postId, text);
+			window.location.href = "/detail.html?post="+postId;
+			return false;
+		});
+	});
+	
+	
 })(jQuery);
