@@ -1,9 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+<div class="page" id="detailView">
+	<header>
+		<a class="button backLink" href="#posts">back to list</a>
+		<h2>Better Reddit</h2>
+		<!--<button class="button green" data-ng-if="!user" data-ng-click="login()">login</button>
+		<button class="button red" data-ng-if="user" data-ng-click="logout()">logout {{user}}</button>
+		<button class="button red" data-ng-if="!user" data-ng-click="register()">register</button>-->
+		<h2>{{post.title}}</h2>
+	</header>
+	<div class="content">
+		<div class="subHeader">
+			<span class="postInfo">
+				<span class="icon icon-liga">&#xe121;</span>&nbsp;{{post.rating.value}}
+				<div class="verticalDivider">&nbsp;</div>
+				<span class="icon-liga">&#xe137;</span>&nbsp;{{post.author}} at {{post.createTimeDisplay}}
+			</span>
+		</div>
+		<ul id="commentList" data-ng-repeat="comment in post.comments">
+			<li>
+				<div class="comment">
+					<div class="commentInfo">
+						<span class="rating">
+							<span class="icon icon-liga">&#xe121;</span>&nbsp;
+							{{comment.rating.value}}
+						</span>
+						<div class="voteButtons">
+							<button class="green button" id="voteCommentUp" data-ng-click="voteComment(comment.id, post.id, true)">up</button>
+							<button class="green button" id="voteCommentDown" data-ng-click="voteComment(comment.id, post.id, false)">down</button>
+						</div>
+					</div>
+					<div class="verticalDivider">&nbsp;</div>
+					<div class="commentContent">
+						<span class="Text">{{comment.text}}</span>
+						<span class="info">
+							<span class="icon-liga">&#xe137;</span>&nbsp;
+							{{comment.author}} at {{comment.createTimeDisplay}}
+						</span>
+					</div>
 
-</body>
-</html>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<footer>
+		<button class="button green" data-ng-if="user" data-ng-click="votePost(post.id, true)">up</button>
+		<button class="button red" data-ng-if="user" data-ng-click="votePost(post.id, false)">down</button>
+		<a class="button" data-ng-if="user" href="#newComment/{{post.id}}">new comment</a>
+	</footer>
+</div>

@@ -1,14 +1,14 @@
 <div class="page" id="listView">
 	<header>
 		<h2>Better Reddit</h2>
-		<button class="button green" data-ng-click="login()">login</button>
-		<button class="button red" data-ng-click="logout()">logout</button>
-		<button class="button red" data-ng-click="register()">register</button>
+		<button class="button green" data-ng-if="!user" data-ng-click="login()">login</button>
+		<button class="button red" data-ng-if="user" data-ng-click="logout()">logout {{user}}</button>
+		<button class="button red" data-ng-if="!user" data-ng-click="register()">register</button>
 	</header>
 	<div class="content">
 		<ul id="postList" class="postList" data-ng-repeat="post in posts">
 			<li>
-				<a class="linkToDetail" href="#detail/{{post.id}}">
+				<a class="linkToDetail" href="#post/{{post.id}}">
 					<div class="post">
 						<div class="postInfo">
 							<span class="rating">
@@ -34,6 +34,6 @@
 		</ul>
 	</div>
 	<footer>
-		<button class="button green" data-ng-click="newPost()">new post</button>
+		<a class="button green" data-ng-if="user" href="#newPost">new post</a>
 	</footer>
 </div>

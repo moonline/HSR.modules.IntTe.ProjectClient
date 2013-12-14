@@ -1,0 +1,17 @@
+<div class="page" id="newPostView">
+	<header>
+		<a class="backLink" href="#posts">back to list</a>
+		<h2>Better Reddit</h2>
+	</header>
+	<div class="content">
+		<form data-ng-if="user">
+			<div class="formLine">
+				<label>text</label><input data-ng-model="newPost.text" type="text" name="text" />
+			</div>
+			<div class="formLine">
+				<label>link</label><input data-ng-model="newPost.link" type="url" name="link" />
+			</div>
+			<button class="button green" data-ng-click="addPost()">save</button>
+		</form>
+	</div>
+</div>

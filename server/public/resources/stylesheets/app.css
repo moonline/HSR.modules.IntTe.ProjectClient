@@ -1,6 +1,68 @@
-﻿header, footer {
-	background: black; color: white;
+﻿* { box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+
+html, body, .page { height: 100%; width: 100%; }
+
+body { font-family: Ubuntu, Arial, Helvetica, sans-serif; font-size: 1em;
+	background: url("../images/wallpaperFire.jpg"); background-size: cover;
 }
 
+.page {
+	display: -webkit-box; display: flex;  -webkit-flex-flow: column; flex-direction: column; flex-flow: column;
+	justify-content: space-between;
+	height: 100%;
+}
 
-body { background: url("../images/wallpaperFire.jpg"); background-size: cover; }
+header, footer {
+	padding: 0.25em;
+	background: black; background: linear-gradient(rgb(80,80,80),black); color: white;
+	min-height: 2em;
+	display: -webkit-box; display: flex;  -webkit-flex-flow: row; flex-direction: row; flex-flow: row;
+}
+header { border-bottom: 2px solid darkorange; }
+
+.verticalDivider { width: 0.05em; margin: 0 0.5em;
+	background: white; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+}
+
+.content { height: 100%; overflow-y: scroll; }
+.post, .comment, form { margin: 0.5em; padding: 0.5em; background: rgba(0,0,0,0.75);border-radius: 0.25em; }
+
+form label { display: inline-block; color: white; width: 10em; }
+.formLine { padding: 0.25em; }
+
+/* links */
+a { display: inline-block; color: white; text-decoration: none; }
+a:hover { color: gray; text-shadow: 0 0 0.25em black; }
+
+/* buttons */
+button, .button {
+	font-size: 1em;
+	display: inline-block;
+	height: 1.5em;
+	line-height: 1em;
+	vertical-align: middle;
+	padding: 0.25em 1em;
+	border: 0.05em solid gray; border-radius: 1em; color: black; font-weight: bold;
+	padding: 0.25em 1em; box-shadow: 0 0 0.25em darkslategray; white-space: nowrap;
+	background: silver; background: linear-gradient(white, silver); display: inline-block;
+}
+button:hover, .button:hover { background: gray; background: linear-gradient(silver, gray);  }
+a.button, .button a { text-decoration: none; }
+a .icon { font-weight: normal; }
+a em { font-size: 1em; font-style: italic; }
+
+.button.green { border-color: rgb(0, 50, 0); color: white;
+	background: darkgreen; background: linear-gradient(mediumseagreen, darkgreen);
+}
+button.green:hover, .button.green:hover { background: rgb(0, 85, 0); background: linear-gradient(rgb(45, 165, 100), rgb(0, 85, 0)); }
+button.red, .button.red { border-color: rgb(40, 0, 0); color: white;
+	background: maroon; background: linear-gradient(red, maroon);
+}
+button.red:hover, .button.red:hover { background: rgb(100, 0, 0); background: linear-gradient(brown, rgb(100, 0, 0)); }
+
+
+/* form */
+input[type="text"], input[type="password"], input[type="url"], textarea {
+	border-radius: 1em; height: 2em; border: none; padding: 0.25em 1em;
+	background: silver; background: linear-gradient(silver,white); opacity: 0.9;
+}

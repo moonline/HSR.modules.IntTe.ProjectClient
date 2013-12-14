@@ -2,9 +2,19 @@ define(['jQuery', 'domain/repository/PostRepository', 'domain/repository/UserRep
 	function(jQuery, PostRepository, UserRepository) {
 	'use strict';
 
-	var DetailController = function($scope, $location) {
-		$scope.posts = PostRepository.findAll();
+	var DetailController = function($scope, $location, $routeParams) {
+		$scope.post = PostRepository.findById($routeParams.postId);
+		$scope.user = UserRepository.getLoggedInUser();
 
+		$scope.votePost = function(postId, positive) {
+			PostRepository.votePost(postId, positive);
+			$scope.post = PostRepository.findById($routeParams.postId);
+		};
+
+		$scope.voteComment = function(commentId, postId, positive) {
+			PostRepository.voteComment(commentId, positive);
+			$scope.post = PostRepository.findById($routeParams.postId);
+		};
 	};
 
 	return DetailController;

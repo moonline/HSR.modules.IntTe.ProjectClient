@@ -18,7 +18,7 @@ define(["jQuery"], function($) {
 		return posts;
 	};
 
-	PostRepository.getPostById = function (id) {
+	PostRepository.findById = function (id) {
 		var post = {};
 		$.ajaxSetup( {"async" : false} );
 		$.getJSON( "/entry/"+ id, function (data) {
