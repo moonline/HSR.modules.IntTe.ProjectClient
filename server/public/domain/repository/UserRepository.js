@@ -1,4 +1,11 @@
 define(['jQuery'], function($){
+
+	$.extend({
+		postJSON: function( url, data, callback) {
+			return $.post(url, data, callback, "json");
+		}
+	});
+
 	var UserRepository = {};
 	UserRepository.addUser = function(username, password) {
 		var state = false;
