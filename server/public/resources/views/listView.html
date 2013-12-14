@@ -1,0 +1,39 @@
+<div class="page" id="listView">
+	<header>
+		<h2>Better Reddit</h2>
+		<button class="button green" data-ng-click="login()">login</button>
+		<button class="button red" data-ng-click="logout()">logout</button>
+		<button class="button red" data-ng-click="register()">register</button>
+	</header>
+	<div class="content">
+		<ul id="postList" class="postList" data-ng-repeat="post in posts">
+			<li>
+				<a class="linkToDetail" href="#detail/{{post.id}}">
+					<div class="post">
+						<div class="postInfo">
+							<span class="rating">
+								<span class="icon icon-liga">&#xe121;</span>&nbsp;
+								{{post.rating.value}}
+							</span>
+							<span class="numberOfComments">
+								<span class="icon icon-liga">&#xe034;</span>&nbsp;
+								{{post.comments.length}}
+							</span>
+						</div>
+						<div class="verticalDivider">&nbsp;</div>
+						<div class="postContent">
+							<span class="title">{{post.title}}</span>
+							<span class="info">
+								<span class="icon-liga">&#xe137;</span>&nbsp;
+								{{post.author}} at {{post.createTimeDisplay}}
+							</span>
+						</div>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<footer>
+		<button class="button green" data-ng-click="newPost()">new post</button>
+	</footer>
+</div>

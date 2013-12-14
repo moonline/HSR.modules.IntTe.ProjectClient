@@ -1,26 +1,37 @@
-(function ($) {
-		'use strict';		
+define(['jQuery', 'domain/repository/PostRepository', 'domain/repository/UserRepository'],
+	function(jQuery, PostRepository, UserRepository) {
+	'use strict';
 
+	var DetailController = function($scope, $location) {
+		$scope.posts = PostRepository.findAll();
+
+	};
+
+	return DetailController;
+
+		/*
 	var Repository = App.Model.Repository;
 	var Controller = App.Controller;
 	var detailTemplateSrc;
 
 	var postId;
-	$(document).delegate('#detail', 'pagebeforeshow', function () {
+
+	$(document).delegate('#detail', 'pagecreate', function (event) {
 		console.log('render detail template');
 		if(!detailTemplateSrc) {
-			detailTemplateSrc = $('#detail').html();
+			detailTemplateSrc = $('#detail .content').html();
 		}
 		var detailTemplate = doT.template(detailTemplateSrc);
 
-		postId = $.url(document.location.href).param("post");
+		postId = $.url(document.location.href).param("post") || window.detailPagePostId;
 
 		var views = {
 			user: Controller.UserController.getLoggedInUser(),
 			post: Repository.PostRepository.getPostById(postId)
 		};
-		$('#detail').html(detailTemplate(views));
+		$('#detail .content').html( detailTemplate(views));
 	});
+
 
 
 	$('#detail').ready(function() {
@@ -36,9 +47,7 @@
 			Repository.PostRepository.votePost(postId, false);
 			window.location.href = "/detail.html?post="+postId;
 		});
-	});
-	
-	$('#detail').ready(function() {
+
 		$('#voteCommentUp').click(function() {
 			var postId = $(this).attr('data-post');
 			var commentId = $(this).attr('data-comment');			
@@ -64,7 +73,7 @@
 			window.location.href = "/detail.html?post="+postId;
 			return false;
 		});
-	});
+	});*/
 	
 	
-})(jQuery);
+});

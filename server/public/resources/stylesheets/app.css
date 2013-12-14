@@ -1,2 +1,6 @@
-﻿
-.page.ui-body-c { background: url("../images/wallpaperFire.jpg"); background-size: cover; }
+﻿header, footer {
+	background: black; color: white;
+}
+
+
+body { background: url("../images/wallpaperFire.jpg"); background-size: cover; }
