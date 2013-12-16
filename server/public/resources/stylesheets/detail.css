@@ -1,7 +1,14 @@
-#detailView .subHeader { background: rgba(0,0,0,0.75); padding: 0.5em; color: white;
+#detailView .subHeader { background: rgba(0,0,0,0.75); padding: 0.5em; color: white; }
+#detailView .subHeader .postInfo { background: rgba(0,0,0,0.75); padding: 0.5em; color: white;
 	display: flex; flex-flow: column; -webkit-flex-flow: column; display: -webkit-box;
+	
 }
+#detailView .subHeader { margin-top: 0.5em; }
+#detailView .subHeader h2 { margin-bottom: 0.5em; }
+#detailView .subHeader .Title { display: block; }
+#detailView .subHeader >div { display: block;}
 
 #detailView .comment { display: flex; flex-direction: row; color: white; text-shadow: none; }
-#detailView .comment .commentInfo, .comment .commentContent { display: flex; flex-direction: column; }
+#detailView .comment .commentInfo, .comment .commentContent{ display: flex; flex-direction: column; }
 #detailView .comment .info { font-weight: normal; }
+ 

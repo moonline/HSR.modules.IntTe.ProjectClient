@@ -46,13 +46,7 @@ define(['jQuery', 'domain/repository/PostRepository', 'domain/repository/UserRep
 
 
 
-	/*	$('#logoutButton').ready(function() {
-			$('#logoutButton').bind('click', function(event, ui) {
-				Controller.UserController.logout();
-
-				window.location.href = "/list.html";
-			});
-		});
+	/*	 
 
 
 		$('#register').ready(function(){

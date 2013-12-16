@@ -19,7 +19,6 @@
 		}
 	});
 
-	// TODO fix path for Configuration/angularConfig: Folder name clashes with appConfiguration module
 	require(["angular", "configuration/angularConfig"], function(angular, angularModule) {
 		'use strict';
 
