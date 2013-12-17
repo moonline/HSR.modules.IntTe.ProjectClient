@@ -7,8 +7,12 @@
 			<h2 data-ng-if="user" >Hi {{user}}</h2>		
 		</div>		
 		<div>
-			<button class="button green" data-ng-if="!user" data-ng-click="login()">login</button>
-			<button class="button red" data-ng-if="user" data-ng-click="logout()">logout {{user}}</button>
+			<button class="button green" data-ng-if="!user" data-ng-click="login()">
+				<span class="glyphicon glyphicon-log-in"></span>&nbsp;login
+			</button>
+			<button class="button red" data-ng-if="user" data-ng-click="logout()">
+				<span class="glyphicon glyphicon-log-out"></span>&nbsp;logout {{user}}
+			</button>
 			<button class="button red" data-ng-if="!user" data-ng-click="register()">register</button>
 		</div>
 		

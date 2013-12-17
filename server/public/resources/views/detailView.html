@@ -1,15 +1,21 @@
 <div class="page" id="detailView">
 	<header>
 		<div>
-			<a class="button backLink" href="#posts">back to list</a>
+			<a class="button backLink" href="#posts">
+				<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;back to list
+			</a>
 		</div>
 		<div>
 			<h2 data-ng-if="user" >Hi {{user}}</h2>	
 			<h2 data-ng-if="!user">Better Reddit</h2>
 		</div>		
 		<div>
-			<button class="button green" data-ng-if="!user" data-ng-click="login()">login</button>
-			<button class="button red" data-ng-if="user" data-ng-click="logout()">logout {{user}}</button>
+			<button class="button green" data-ng-if="!user" data-ng-click="login()">
+				<span class="glyphicon glyphicon-log-in"></span>&nbsp;login
+			</button>
+			<button class="button red" data-ng-if="user" data-ng-click="logout()">
+				<span class="glyphicon glyphicon-log-out"></span>&nbsp;logout {{user}}
+			</button>
 			<button class="button red" data-ng-if="!user" data-ng-click="register()">register</button>
 		</div>		
 	</header>
@@ -36,8 +42,12 @@
 							{{comment.rating.value}}
 						</span>
 						<div class="voteButtons">
-							<button class="green button" id="voteCommentUp" data-ng-if="user" data-ng-click="voteComment(comment.id, post.id, true)">up</button>
-							<button class="green button" id="voteCommentDown" data-ng-if="user" data-ng-click="voteComment(comment.id, post.id, false)">down</button>
+							<button class="green button" id="voteCommentUp" data-ng-if="user" data-ng-click="voteComment(comment.id, post.id, true)">
+								<span class="glyphicon glyphicon-arrow-up"></span>
+							</button>
+							<button class="red button" id="voteCommentDown" data-ng-if="user" data-ng-click="voteComment(comment.id, post.id, false)">
+								<span class="glyphicon glyphicon-arrow-down"></span>
+							</button>
 						</div>
 					</div>
 					<div class="verticalDivider">&nbsp;</div>
@@ -54,8 +64,13 @@
 		</ul>
 	</div>
 	<footer>
-		<button class="button green" data-ng-if="user" data-ng-click="votePost(post.id, true)">up</button>
-		<button class="button red" data-ng-if="user" data-ng-click="votePost(post.id, false)">down</button>
-		<a class="button" data-ng-if="user" href="#newComment/{{post.id}}">new comment</a>
+		<button class="button green" data-ng-if="user" data-ng-click="votePost(post.id, true)">
+			<span class="glyphicon glyphicon-arrow-up"></span>
+		</button>
+		<button class="button red" data-ng-if="user" data-ng-click="votePost(post.id, false)">
+			<span class="glyphicon glyphicon-arrow-down"></span>
+		</button>
+		<a class="button" data-ng-if="user" href="#newComment/{{post.id}}">
+			<span class="glyphicon glyphicon-comment"></span>&nbsp;new comment</a>
 	</footer>
 </div>
