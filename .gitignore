@@ -1,3 +1,6 @@
+# node modules
+/server/node_modules
+
 # temporary files
 *~
 *.swp
